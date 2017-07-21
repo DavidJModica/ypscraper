@@ -19,7 +19,7 @@ $url= html_entity_decode($url);
 $nextLink = $url;
 
 // Open CSV file
-//$fp = fopen('php://output', 'w');
+$fp = fopen('php://output', 'w');
 
 // Create Empty Array that will contain all of the individual pages of the businesses so that we can go back and scrape them after
 $pages = [];
@@ -55,14 +55,14 @@ foreach($pages as $pageurl) {
 	$phone = $html->find('p.phone',0)->plaintext;
 	$td = array($name,$email,$phone);
 	// Add the name email and phone number to our CSV
-	//  fputcsv($fp,$td);
-echo $name." - ".$email." - ".$phone;
+	  fputcsv($fp,$td);
+
 		$html->clear();
 		unset($html);
 	}
 
 
-//fclose($fp);
+fclose($fp);
 
 ?>
 <title>
