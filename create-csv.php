@@ -53,7 +53,7 @@ foreach($pages as $pageurl) {
 	$td = array($name,$email,$phone);
 	// Add the name email and phone number to our CSV
 	//  fputcsv($fp,$td);
-echo $name."<br>"
+echo $name."<br>";
 		$html->clear();
 		unset($html);
 	}
