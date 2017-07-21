@@ -2,7 +2,7 @@
 // Based off of https://github.com/brandon-bailey/yellow-pages-scraper
 include "simple_html_dom.php";
 
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 300000);
 
 //Set headers
 header("Content-type: application/ms-excel");
