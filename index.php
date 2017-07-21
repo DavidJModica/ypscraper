@@ -4,6 +4,6 @@
 Youtube Scraper
 </head>
 <body>
-The Scraper is creating your CSV now.
+<a href=create-csv.php>Scrape</a>
 </body>
-</html>l
+</html>
