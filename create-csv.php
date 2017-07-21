@@ -2,11 +2,11 @@
 // Based off of https://github.com/brandon-bailey/yellow-pages-scraper
 include "simple_html_dom.php";
 
-ini_set('max_execution_time', 300000);
+ini_set('max_execution_time', 300);
 
 //Set headers
 header("Content-type: application/ms-excel");
-header("Content-Disposition: attachment; filename=results.csv");
+header("Content-Disposition: attachment; filename=test.csv");
 
 //Set URL
 $url='https://www.yellowpages.com/search?search_terms=Dog+Day+Care&geo_location_terms=Marblehead%2C+MA';
