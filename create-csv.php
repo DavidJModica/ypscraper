@@ -2,14 +2,14 @@
 // Based off of https://github.com/brandon-bailey/yellow-pages-scraper
 include "simple_html_dom.php";
 
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 30000);
 
 //Set headers
 //header("Content-type: application/ms-excel");
 //header("Content-Disposition: attachment; filename=test.csv");
 
 //Set URL
-$url='https://www.yellowpages.com/search?search_terms=Playful+Paws+Doggie+Day+Care&geo_location_terms=Marblehead%2C+MA';
+$url='https://www.yellowpages.com/search?search_terms=Playful+Paws+Doggie+Day+Care&geo_location_terms=Marblehead%2C+Hudson%2C+OH';
 
 //Clean URL
 $url= html_entity_decode($url);
@@ -53,7 +53,7 @@ foreach($pages as $pageurl) {
 	$td = array($name,$email,$phone);
 	// Add the name email and phone number to our CSV
 	//  fputcsv($fp,$td);
-echo $name."<br>";
+echo $name." -".$email." - ".$phone."<br>";
 		$html->clear();
 		unset($html);
 	}
