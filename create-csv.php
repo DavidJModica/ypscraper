@@ -1,3 +1,6 @@
+
+<html>
+<head>
 <?php
 // Based off of https://github.com/brandon-bailey/yellow-pages-scraper
 include "simple_html_dom.php";
@@ -62,9 +65,8 @@ foreach($pages as $pageurl) {
 fclose($fp);
 
 ?>
-<html>
-<head>
-Youtube Scraper
+<title>
+Youtube Scraper</title>
 </head>
 <body>
 The Scraper is creating your CSV now.
