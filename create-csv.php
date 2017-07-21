@@ -59,7 +59,7 @@ echo $name."<br>"
 	}
 
 
-fclose($fp);
+//fclose($fp);
 
 ?>
 
