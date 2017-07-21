@@ -5,8 +5,8 @@ include "simple_html_dom.php";
 ini_set('max_execution_time', 300);
 
 //Set headers
-header("Content-type: application/ms-excel");
-header("Content-Disposition: attachment; filename=test.csv");
+//header("Content-type: application/ms-excel");
+//header("Content-Disposition: attachment; filename=test.csv");
 
 //Set URL
 $url='https://www.yellowpages.com/search?search_terms=Dog+Day+Care&geo_location_terms=Marblehead%2C+MA';
@@ -16,7 +16,7 @@ $url= html_entity_decode($url);
 $nextLink = $url;
 
 // Open CSV file
-$fp = fopen('php://output', 'w');
+//$fp = fopen('php://output', 'w');
 
 // Create Empty Array that will contain all of the individual pages of the businesses so that we can go back and scrape them after
 $pages = [];
@@ -52,8 +52,8 @@ foreach($pages as $pageurl) {
 	$phone = $html->find('p.phone',0)->plaintext;
 	$td = array($name,$email,$phone);
 	// Add the name email and phone number to our CSV
-	  fputcsv($fp,$td);
-
+	//  fputcsv($fp,$td);
+echo $name."<br>"
 		$html->clear();
 		unset($html);
 	}
