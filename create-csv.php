@@ -9,7 +9,7 @@ ini_set('max_execution_time', 300);
 //header("Content-Disposition: attachment; filename=test.csv");
 
 //Set URL
-$url='https://www.yellowpages.com/search?search_terms=Dog+Day+Care&geo_location_terms=Marblehead%2C+MA';
+$url='https://www.yellowpages.com/search?search_terms=Playful+Paws+Doggie+Day+Care&geo_location_terms=Marblehead%2C+MA';
 
 //Clean URL
 $url= html_entity_decode($url);
