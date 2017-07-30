@@ -2,7 +2,7 @@
 // Based off of https://github.com/brandon-bailey/yellow-pages-scraper
 include "simple_html_dom.php";
 
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 300000000);
 
 //Set headers
 header("Content-type: application/ms-excel");
@@ -16,7 +16,7 @@ $url= html_entity_decode($url);
 $nextLink = $url;
 
 // Open CSV file
-$fp = fopen('php://output', 'w');
+$fp = fopen('./tmp/output', 'w');
 
 // Create Empty Array that will contain all of the individual pages of the businesses so that we can go back and scrape them after
 $pages = [];
@@ -33,18 +33,19 @@ while ($nextLink && $num <= $numofbusinesses){
 		array_push($pages, $moreinfo);
 		$num++;
   }
-// Check if we are on the last page.
+	// Check if we are on the last page.
   $nextLink = (($temp = $html->find("div.pagination a[class='next']",0)) ?"http://www.yellowpages.com".$temp->href : NULL );
 	$nextLink = html_entity_decode($nextLink);
 
 	$html->clear();
 	unset($html);
 }
-// Go through the array that we created for the individual pages.
 
+// Go through the array that we created for the individual pages.
 foreach($pages as $pageurl) {
 	$html = new simple_html_dom();
 	$html = file_get_html("https://www.yellowpages.com".$pageurl);
+
 	// Find the name, email and phone number on each page
 	$name = $html->find('div.sales-info',0)->find('h1',0)->plaintext;
 	$email = $html->find('a.email-business',0);
@@ -53,12 +54,13 @@ foreach($pages as $pageurl) {
 			}
 	$phone = $html->find('p.phone',0)->plaintext;
 	$td = array($name,$email,$phone);
-	// Add the name email and phone number to our CSV
-	  fputcsv($fp,$td);
 
-		$html->clear();
-		unset($html);
-	}
+	// Add the name email and phone number to our CSV
+  fputcsv($fp,$td);
+
+	$html->clear();
+	unset($html);
+}
 $td = array($num);
 fputcsv($fp,$td);
 fclose($fp);
