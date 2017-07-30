@@ -16,7 +16,7 @@ $url= html_entity_decode($url);
 $nextLink = $url;
 
 // Open CSV file
-$fp = fopen('./tmp/output', 'w');
+$fp = fopen('/tmp/output', 'w');
 
 // Create Empty Array that will contain all of the individual pages of the businesses so that we can go back and scrape them after
 $pages = [];
